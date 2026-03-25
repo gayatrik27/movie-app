@@ -3,16 +3,16 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
 
-// FIX fetch
 const fetch = require("node-fetch");
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 
-/* ✅ ROOT ROUTE (VERY IMPORTANT) */
+/* ✅ ROOT ROUTE (fixes "Cannot GET /") */
 app.get("/", (req, res) => {
-  res.send("Movie App Backend is Running 🚀");
+  res.send("Movie API is running 🚀");
 });
 
 /* ✅ MongoDB connection */
@@ -25,6 +25,10 @@ mongoose
 app.get("/search", async (req, res) => {
   try {
     const query = req.query.q;
+
+    if (!query) {
+      return res.status(400).json({ error: "Query is required" });
+    }
 
     const response = await fetch(
       `https://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&s=${query}`
