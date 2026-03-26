@@ -1,42 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Movie App 🎬</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Movie Search</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1>🎬 Movie Search App</h1>
+  <h1>🎬 Movie Search</h1>
 
-    <!-- Search -->
-    <div class="search-box">
-        <input 
-            id="search" 
-            placeholder="Search Movies..." 
-            onkeyup="searchMovies()"
-        >
-    </div>
+  <input 
+    type="text" 
+    id="search" 
+    placeholder="Search movies..." 
+    onkeyup="searchMovies()"
+  >
 
-    <!-- Results -->
-    <h2>Results</h2>
+  <p id="status">🔥 Start typing to search...</p>
 
-    <p id="status">🔥 Start typing to explore movies...</p>
+  <div id="results"></div>
 
-    <div id="movies"></div>
-
-    <!-- Popup -->
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            
-            <span class="close" onclick="closePopup()">&times;</span>
-
-            <div id="movieDetails"></div>
-
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+  <!-- IMPORTANT -->
+  <script src="script.js"></script>
 
 </body>
 </html>
